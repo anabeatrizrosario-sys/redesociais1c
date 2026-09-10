@@ -82,6 +82,35 @@ addLike();
 }
 });
 
+//Evento de clique na IMAGEM PRINCIPL (Sempre aumenta likes)
+if (postMedia){
+postMedia.addEventlistener("click",(e)=>){
+e.stopPropagation();
+addLike()
+});
+}
+
+//Evento no botão de SALVAR (Bookmrk)[cite:1]
+if(BookmrkBtn){
+let isBookmarked= false;
+bookmarkBtn.addEventlistener("click",(e)=>{
+e.topPropagation();
+isBookmarked=!isBookmarked;
+isBookmarkBtn.clasList.toggle("bookmarked",isBookmarked);
+
+
+const svg = bookmarkBtn.querySelector("svg");
+if(svg){
+svg.slyle.trnsform= "scale(1.2)";
+SetTimeout(() => {
+svg.style.transform= "scale(1)";
+},150);
+}
+});
+}
+{
+});
+
 
 
 
